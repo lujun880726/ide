@@ -112,11 +112,16 @@ class Helper {
             writeUTF8WithBOMFile($path, $conent);
             return 1;
         } else {
-            file_put_contents($path, $conent);
-            return 1;
+            $flag =  file_put_contents($path, $conent);
+            if ($flag > 0)
+            {
+                return 1;
+            }
+            return 'save error';
         }
         return 0;
     }
+
 
     /**
      * 作用: 新建文件
